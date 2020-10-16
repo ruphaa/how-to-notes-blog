@@ -1,0 +1,21 @@
+---
+layout: layouts/post.njk
+title: How to delete a specific item from an array in JS?
+categoryList: [js]
+---
+
+### First way
+
+Iterate through the array, and find the item you want to delete and then do `delete list[index]`
+
+Initial list length - 5
+
+`list.forEach((index, item) ⇒ if(item.name == 'No entry') delete list[item])`
+
+This will delete the item in the array but it leaves a void meaning - the array length will still remain the same → will be like final list length 5 - [1,2,3,4,empty]
+
+### Second way
+
+`list.forEach((index, item) ⇒ if(item.name == 'No entry') list.splice(index, 1))`
+
+This will actually the remove the item and it's space from the array so the length of the array will be Initial(5) ⇒ Final(4)

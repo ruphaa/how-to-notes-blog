@@ -1,0 +1,26 @@
+<div class="wrapper">
+  <div class="title">
+    <h2>How to - Guide</h2>
+    <p class="subheading">
+      Answers to all how-to related questions in one place.
+    </p>
+    <div class="search">
+      <input type="text" id="searchPosts" placeholder="Search for anything..."/>
+      <i class="fa fa-search"></i>
+    </div>
+  </div>
+  <div class="articles">
+  {% for post in postslist %}
+    <div class="article">
+      <div class="post-title">
+        <a href="{{ post.url | url }}">{{ post.data.title }}</a>
+      </div>
+      <div class="category-list">
+        {% for category in post.data.categoryList %}
+          <div class="category">{{category}}</div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+</div>

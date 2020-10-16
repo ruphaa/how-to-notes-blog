@@ -1,0 +1,9 @@
+---
+layout: layouts/base.njk
+permalink: /
+---
+
+{# Text, markdown or HTML any content can be used #}
+
+{% set postslist = collections.posts %}
+{% include "postslist.njk" %}

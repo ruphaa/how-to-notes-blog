@@ -1,0 +1,16 @@
+---
+layout: layouts/base.njk
+---
+<nav class="back"><a href="/posts">  ← Go Back</a></nav>
+<div class="post">
+    <h1>{{title}}</h1>
+    <div class="category-list">
+        {% for category in categoryList %}
+            <div class="category">{{category}}</div>
+        {% endfor %}
+    </div>
+    <div class="content">
+        <p>{{ content | safe }}</p>
+    </div>
+</div>
+

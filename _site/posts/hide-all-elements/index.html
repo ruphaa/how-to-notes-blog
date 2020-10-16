@@ -1,0 +1,390 @@
+<html>
+  <head>
+    <title>Ruphaa's Notes</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/themes/prism-tomorrow.min.css"
+      integrity="sha512-vswe+cgvic/XBoF1OcM/TeJ2FW0OofqAVdCZiEYkd6dwGXthvkSFWOoGGJgS2CW70VK5dQM5Oh+7ne47s74VTg=="
+      crossorigin="anonymous"
+    />
+    <link
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+       body {
+  --primary-font: #4a4a4a;
+  --primary-color: #3f5ede;
+  --secondary-font-color: #696969;
+  --input-background: #ffffff;
+  --grey: #4f4f4f;
+  --dark-grey: #495057;
+  --light-blue: #dae9ff;
+  --hover-blue: #9ebdec;
+  --copyright-grey: #9b9b9b;
+  --gold: #ffd479;
+  --link-darker-color: #364fc7;
+  --code-light-background: #f6f8fb;
+  --code-border-color: #d6d9de;
+}
+
+body[data-theme="dark"] {
+  background-color: #353535;
+  --primary-font: #fff;
+  --secondary-font-color: #b3b9c5;
+  --primary-color: #8ca0f4;
+  --input-background: #353535;
+  --grey: #b3b9c5;
+  --link-darker-color: #e1a6f2;
+  --code-light-background: #383838;
+  --code-border-color: #919191;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  transition: color 300ms, background-color 300ms;
+}
+
+.main {
+  height: 100%;
+  max-width: 825px;
+  padding: 0 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  height: 50px;
+  display: flex;
+  margin-bottom: 15px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.theme-toggle {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 20px;
+}
+
+header h3 {
+  flex: 1;
+  font-family: "Pacifico", cursive;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 1px;
+  text-align: left;
+  color: var(--primary-color);
+}
+
+.wrapper {
+  flex: 1;
+  margin-bottom: 15px;
+}
+
+.wrapper .title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper .title h2 {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 50px;
+  letter-spacing: 0.04em;
+  color: var(--primary-font);
+  margin-bottom: 0;
+}
+
+.wrapper .title p {
+  font-size: 20px;
+  line-height: 50px;
+  letter-spacing: 0.04em;
+  color: var(--secondary-font-color);
+  margin: 0 0;
+}
+
+.wrapper .title .search {
+  margin-top: 15px;
+  position: relative;
+}
+
+.wrapper .title .search #searchPosts {
+  width: 500px;
+  height: 45px;
+  background: var(--input-background);
+  border: 1px solid var(--primary-font);
+  font-family: "Montserrat", sans-serif;
+  outline: none;
+  padding: 0 10px;
+  font-size: 18px;
+  color: var(--primary-font);
+}
+
+.wrapper .title .search #searchPosts:focus {
+  border: 2px solid var(--primary-color);
+}
+
+.wrapper .title .search .fa {
+  color: var(--grey);
+  font-size: 22px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+}
+
+.wrapper .articles {
+  margin-top: 40px;
+}
+
+.wrapper .articles .article {
+  margin-top: 25px;
+}
+
+.wrapper .post-title a {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 35px;
+  letter-spacing: 0.04em;
+  color: var(--primary-font);
+  text-decoration: none;
+}
+
+.wrapper .post-title a:hover {
+  color: var(--primary-color);
+}
+
+.wrapper .category-list,
+.post .category-list {
+  display: flex;
+  margin-top: 10px;
+}
+
+.wrapper .category,
+.post .category {
+  margin-right: 20px;
+  background: var(--light-blue);
+  padding: 2px 14px;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--dark-grey);
+  border-radius: 1px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.wrapper .category:hover,
+.post .category:hover {
+  background-color: var(--hover-blue);
+}
+
+.post .content {
+  margin-top: 40px;
+}
+
+.back {
+  margin-top: 30px;
+}
+
+.back a {
+  text-decoration: none;
+  color: var(--primary-font);
+  font-weight: 500;
+  border-bottom: 1px solid;
+}
+
+.back a:hover {
+  color: var(--primary-color);
+}
+
+.post {
+  flex: 1;
+  color: var(--primary-font);
+}
+
+footer {
+  width: 100%;
+  align-self: flex-end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer .copyright {
+  font-size: 12px;
+  line-height: 50px;
+  letter-spacing: 0.04em;
+  color: var(--copyright-grey);
+}
+
+footer a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+body[data-theme="dark"] .theme-toggle {
+  color: var(--gold);
+}
+
+.content a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.content a:hover {
+  color: var(--link-darker-color);
+}
+
+.content code:not(.language-jsx):not(.language-js):not(.language-html) {
+  padding: 2px 8px;
+  border: 1px solid var(--code-border-color);
+  border-radius: 4px;
+  color: var(--primary-font);
+  background-color: var(--code-light-background);
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.content ul {
+  list-style: none;
+}
+
+ul li::before {
+  content: "\2022";
+  color: var(--primary-color);
+  font-weight: bold;
+  display: inline-block;
+  font-size: 30px;
+  width: 20px;
+  margin-left: -1em;
+  vertical-align: text-bottom;
+}
+
+.content li,
+p {
+  line-height: 25px;
+}
+
+.content li {
+  margin-top: 10px;
+}
+
+.content img {
+  max-height: 1000px;
+}
+
+[data-theme="dark"] .theme-toggle::after {
+  content: "☀";
+}
+
+[data-theme="light"] .theme-toggle::after {
+  content: "🌙";
+}
+
+/* body[data-theme="dark"] {
+  background: #000;
+  filter: invert(1) hue-rotate(180deg);
+} */
+
+    </style>
+  </head>
+
+  <body data-theme="light">
+    <div class="main">
+      <header>
+        <h3>Ruphaa's Notes</h3>
+        <div class="nav">
+          <button class="theme-toggle" id="dark-mode"></button>
+        </div>
+      </header>
+
+      <nav class="back"><a href="/posts">  ← Go Back</a></nav>
+<div class="post">
+    <h1>How to hide all elements specified in JS?</h1>
+    <div class="category-list">
+        
+            <div class="category">js</div>
+        
+    </div>
+    <div class="content">
+        <p><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">const</span> <span class="token function-variable function">hide</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>list</span><span class="token punctuation">)</span> <span class="token operator">=></span><br>  <span class="token punctuation">[</span><span class="token operator">...</span>list<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">el</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> <span class="token string">"none"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br><span class="token function">hide</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">"img"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</p>
+    </div>
+</div>
+
+
+      <footer>
+        <div class="copyright">
+          © Copyright 2020
+          <a
+            href="https://twitter.com/ruphaaganesh"
+            target="_blank"
+            rel="noopener noreferrer"
+            >RUPHAA GANESH</a
+          >
+        </div>
+      </footer>
+    </div>
+    <script>
+      (function () {
+  const body = document.querySelector("body");
+  const themeToggler = document.querySelector("#dark-mode");
+  const articles = document.querySelectorAll(".article");
+  const search = document.querySelector("#searchPosts");
+  const setTheme = (theme) => {
+    localStorage.setItem("theme", theme);
+    body.dataset.theme = theme;
+  };
+  const toggleDarkMode = () => {
+    let currentTheme = body.dataset.theme;
+    if (currentTheme == "light") {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
+
+  const searchPosts = () => {
+    let input = search.value;
+    articles.forEach((article) => {
+      let articleTitle = article
+        .querySelector("a")
+        .textContent.trim()
+        .toLowerCase();
+      if (articleTitle.includes(input)) {
+        article.style.display = "block";
+      } else {
+        article.style.display = "none";
+      }
+    });
+  };
+
+  themeToggler.addEventListener("click", toggleDarkMode);
+  search && search.addEventListener("input", searchPosts);
+
+  if (localStorage.getItem("theme") == "dark") {
+    setTheme("dark");
+  } else {
+    setTheme("light");
+  }
+})();
+
+    </script>
+  </body>
+</html>
